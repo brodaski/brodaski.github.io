@@ -1,0 +1,35 @@
+/* Shared styles for every page on the site (home page + each tool). */
+:root{
+  --bg:#F2F5F9;--surface:#FFFFFF;--ink:#14213D;--muted:#5B6678;--rule:#D6DDE8;
+  --accent:#1F4FD8;--accent-soft:#E4EBFC;--warn-bg:#FFF4D6;--warn-ink:#6B4A00;--warn-bar:#E0A100;--bad:#B42318;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1524;--surface:#16203A;--ink:#EAF0FF;--muted:#9AA8C4;--rule:#2A3858;--accent:#7FA2FF;--accent-soft:#1E2D57;--warn-bg:#3A2E0B;--warn-ink:#FFE19A;--warn-bar:#E0A100;--bad:#FF8A80}
+}
+:root[data-theme="dark"]{--bg:#0E1524;--surface:#16203A;--ink:#EAF0FF;--muted:#9AA8C4;--rule:#2A3858;--accent:#7FA2FF;--accent-soft:#1E2D57;--warn-bg:#3A2E0B;--warn-ink:#FFE19A;--warn-bar:#E0A100;--bad:#FF8A80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--body)}
+main{max-width:760px;margin:0 auto;padding:40px 20px 72px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1{font:700 clamp(28px,6vw,40px)/1.1 var(--display);margin:0 0 8px;letter-spacing:-.02em}
+.lede{color:var(--muted);margin:0 0 28px;max-width:56ch}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.theme{flex:none;background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:8px 16px;font:500 14px var(--body);cursor:pointer;margin-top:4px}
+.theme:hover{border-color:var(--accent)}
+.back{display:inline-block;margin-bottom:16px;color:var(--accent);font-weight:600;text-decoration:none}
+.back:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Home page only */
+.home h1{font-size:clamp(36px,9vw,56px);line-height:1.05;letter-spacing:-.03em}
+.tools{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.tool{display:block;padding:22px 4px;border-bottom:1px solid var(--rule);color:inherit;text-decoration:none;transition:background .15s}
+.tool:hover{background:var(--accent-soft)}
+.tool h2{font:700 24px/1.2 var(--display);margin:0 0 6px;letter-spacing:-.01em}
+.tool p{margin:0 0 10px;color:var(--muted);max-width:60ch}
+.tool .go{color:var(--accent);font-weight:600}
+.tool:hover .go{text-decoration:underline}
